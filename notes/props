@@ -1,0 +1,27 @@
+const props = defineProps({
+  videoId: {
+    type: String,
+    required: true,
+  },
+});
+
+
+execute method dari parent
+  emit -> untuk execute function dari parent nya
+
+  di parent -> @update:model-value="toggleComplete" 
+  di children perlu di define dlu -> defineEmits(["update:modelValue"]);
+
+  parent  
+    <LessonCompleteButton
+        :model-value="isLessonComplete"
+        @update:model-value="toggleComplete"
+          />
+          
+  children
+    <input
+      type="checkbox"
+      :value="modelValue"
+      @input="() => $emit('update:modelValue', !modelValue)"
+      class="hidden"
+    />

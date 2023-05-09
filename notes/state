@@ -1,0 +1,4 @@
+- define data agar bisa digunakan di banyak component sekaligus
+- data nya semi persistent, akan hilang kalau halaman nya di refresh
+- jadi data nya akan persist, selama halaman belum di refresh
+  const progress = useState("progress", () => []);

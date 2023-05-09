@@ -1,0 +1,20 @@
+
+- npm i @vueuse/nuxt @vueuse/core
+- tambah @vueuse/nuxt di nuxt.confit.ts -> module
+- state otomatis kesimpan sebagai local storage
+
+const progress = useLocalStorage("progress", []);
+
+
+- karena ada prosess hydrate, ini ngebuat state nya tidak langsung berubah ketika halaman di refresh
+- jadi perlu pakai <ClientOnly> wrapper (tp performance nya engk begitu bagus)
+
+  <ClientOnly>
+    <LessonCompleteButton
+      :model-value="isLessonComplete"
+      @update:model-value="toggleComplete"
+    />
+  </ClientOnly>
+
+- atau tambah prefix di nama file nya
+  button.client.vue
